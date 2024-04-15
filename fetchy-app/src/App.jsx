@@ -30,12 +30,15 @@ export const App = () => {
 
   const[error,setError] = useState("")
   
+
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("conceptos"));
     if (!data) {
       localStorage.setItem("conceptos", JSON.stringify([]));
     }
   }, []);
+
 
   useEffect(() => {
     cargarDatos();
@@ -46,6 +49,7 @@ export const App = () => {
       JSON.parse(localStorage.getItem("conceptos")) || [];
     setResultado(conceptosGuardados);
   };
+
   const buscarConcepto = (termino) => {
     const conceptosGuardados =
       JSON.parse(localStorage.getItem("conceptos")) || [];
@@ -57,6 +61,7 @@ export const App = () => {
     const resultados = fuse.search(termino);
     return resultados.map((resultado) => resultado.item);
   };
+
   const handleChange = (event) => {
     const termino = event.target.value;
     setBusqueda(termino);
@@ -64,11 +69,13 @@ export const App = () => {
     setResultado(conceptosCoincidentes);
     setConceptoSeleccionado(null);
   };
+
   const handleConceptoSeleccionado = (concepto) => {
     setConceptoSeleccionado(concepto);
     setBusqueda("");
     setResultado([]);
   };
+
   const handleNuevoConceptoChange = (event) => {
     const { name, value } = event.target;
     setNuevoConcepto({
@@ -76,23 +83,26 @@ export const App = () => {
       [name]: value,
     });
   };
+  
   const handleAddUrl = () => {
     setNuevoConcepto({
       ...nuevoConcepto,
       urls: [...nuevoConcepto.urls, ""],
     });
   };
+
+
   const handleUrlChange = (index, value) => {
     const urls = [...nuevoConcepto.urls];
     urls[index] = value;
     setNuevoConcepto({
       ...nuevoConcepto,
-      urls,
+      urls
     });
   };
+
   const handleNuevoConceptoSubmit = (event) => {
     event.preventDefault();
-
     let pene = true;
 
     const x = JSON.parse(localStorage.getItem("conceptos"));
@@ -105,6 +115,7 @@ export const App = () => {
     });
 
     if (pene) {
+
       crearConcepto(
         nuevoConcepto.nombre,
         nuevoConcepto.descripcion,
@@ -136,10 +147,8 @@ export const App = () => {
   const crearConcepto = (nombre, descripcion, ejemplo, urls) => {
     // GENERRA UN ID ALEATOREO
     const nuevoId = uuidv4();
-
     const nuevoConcepto = { nombre, descripcion, ejemplo, urls, id: nuevoId };
-    const conceptosGuardados =
-      JSON.parse(localStorage.getItem("conceptos")) || [];
+    const conceptosGuardados =  JSON.parse(localStorage.getItem("conceptos")) || [];
     conceptosGuardados.push(nuevoConcepto);
     localStorage.setItem("conceptos", JSON.stringify(conceptosGuardados));
   };
@@ -155,8 +164,6 @@ export const App = () => {
       handleBuscar();
     }
   };
-  //--------------------------------------------//
-  
 
   return (
     <div className="app">
@@ -178,7 +185,7 @@ export const App = () => {
         conceptoSeleccionado={resultado.length!=0?null:conceptoSeleccionado}//si el resultado es diferente a 0 te de un null
       />
       <CreateConceptForm
-      error={error}
+        error={error}
         mostrarAñadir={mostrarAñadir}
         nuevoConcepto={nuevoConcepto}
         handleNuevoConceptoChange={handleNuevoConceptoChange}
