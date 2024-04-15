@@ -13,6 +13,8 @@ export const App = () => {
   const [busqueda, setBusqueda] = useState("");
   const [resultado, setResultado] = useState([]);
   const [conceptoSeleccionado, setConceptoSeleccionado] = useState(null);
+  //const [conceptoActualizandoId, setConceptoActualizandoId] = useState(null);
+
   const [nuevoConcepto, setNuevoConcepto] = useState({
     nombre: "",
     descripcion: "",
@@ -71,7 +73,7 @@ export const App = () => {
     const { name, value } = event.target;
     setNuevoConcepto({
       ...nuevoConcepto,
-      [name]: value.trim(),
+      [name]: value,
     });
   };
   const handleAddUrl = () => {

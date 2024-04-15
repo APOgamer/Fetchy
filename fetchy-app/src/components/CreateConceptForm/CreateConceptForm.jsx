@@ -38,7 +38,6 @@ export const CreateConceptForm = ({
             value={nuevoConcepto.descripcion}
             onChange={handleNuevoConceptoChange}
           />
-
           <textarea
             type="text"
             placeholder="ejemplo"
