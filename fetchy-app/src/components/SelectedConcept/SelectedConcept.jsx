@@ -75,5 +75,6 @@ export const SelectedConcept = ({ conceptoSeleccionado ,setCrud}) => {
 
 SelectedConcept.propTypes = {
     conceptoSeleccionado: PropTypes.object,
+    setCrud:PropTypes.object
 };
 

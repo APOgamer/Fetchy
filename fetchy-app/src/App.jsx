@@ -156,7 +156,7 @@ export const App = () => {
     }
   };
   //--------------------------------------------//
-  //FUNCIONES QUE HIZO CODY
+  
 
   return (
     <div className="app">
