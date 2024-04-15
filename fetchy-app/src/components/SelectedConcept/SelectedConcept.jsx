@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
@@ -11,7 +11,6 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
     ejemplo: "",
     urls: [],
   });
-
   //-------------------------------------------------------------------------//
   //-------------------------------------------------------------------------//
   //FUNCIONES
@@ -49,7 +48,7 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
   const submitActualizar = (e) => {
     e.preventDefault();
     actualizarConcepto();
-    setMostrarFormEditar(true)
+    setMostrarFormEditar(true);
   };
 
   const eliminarConepto = (id) => {
@@ -66,8 +65,6 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
 
   //-------------------------------------------------------------------------//
   //-------------------------------------------------------------------------//
-
-  // LA LOGICA YA ESTA PERO TIENE UN PAR DE ERRORRES POR OTRAS COSAS
 
   return (
     <div>
@@ -111,6 +108,7 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
                 }
               />
               <button>actualizar</button>
+              <button onClick={() => setMostrarFormEditar(true)}>regresar</button>
             </form>
           )}
           <ul>
@@ -118,22 +116,24 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
               <li key={index}>{url}</li>
             ))}
           </ul>
-          <div style={{ margin: "30px 0px" }}>
-            <button
-              className="button"
-              onClick={() => eliminarConepto(conceptoSeleccionado.id)}
-            >
-              eliminar
-            </button>
-            <button
-              className="button"
-              onClick={() => {
-                setMostrarFormEditar(false);
-              }}
-            >
-              actualizar
-            </button>
-          </div>
+          {mostrarFormEditar && (
+            <div style={{ margin: "30px 0px" }}>
+              <button
+                className="button"
+                onClick={() => eliminarConepto(conceptoSeleccionado.id)}
+              >
+                eliminar
+              </button>
+              <button
+                className="button"
+                onClick={() => {
+                  setMostrarFormEditar(false);
+                }}
+              >
+                Actualizar
+              </button>            
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -141,6 +141,6 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
 };
 
 SelectedConcept.propTypes = {
-    conceptoSeleccionado: PropTypes.object,
-    setCrud:PropTypes.object
+  conceptoSeleccionado: PropTypes.object,
+  setCrud: PropTypes.object,
 };

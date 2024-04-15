@@ -143,6 +143,7 @@ export const App = () => {
         urls: [],
       });
       setMostrarAñadir(false);
+      setConceptoSeleccionado(null); // Establece el concepto seleccionado como null al volver atrás
   }
   const crearConcepto = (nombre, descripcion, ejemplo, urls) => {
     // GENERRA UN ID ALEATOREO
@@ -183,6 +184,7 @@ export const App = () => {
       <SelectedConcept
         setCrud={setCrud}
         conceptoSeleccionado={resultado.length!=0?null:conceptoSeleccionado}//si el resultado es diferente a 0 te de un null
+        
       />
       <CreateConceptForm
         error={error}
