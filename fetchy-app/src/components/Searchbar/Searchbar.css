@@ -121,6 +121,7 @@
     background-color: #7d2ae8;
     transition: all 0.2s ease;
     margin-left: 10PX;
+    margin-top: 10px;
   }
   
   .button:active {

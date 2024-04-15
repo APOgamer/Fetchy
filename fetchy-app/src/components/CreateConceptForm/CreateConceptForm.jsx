@@ -7,6 +7,7 @@ export const CreateConceptForm = ({
   handleUrlChange,
   handleNuevoConceptoSubmit,
   mostrarAñadir,
+  handleBack,
   error
 }) => {
 
@@ -17,6 +18,7 @@ export const CreateConceptForm = ({
         <form
           className="form-añadir-concepto"
           onSubmit={handleNuevoConceptoSubmit}
+          
         >
           <input
             type="text"
@@ -35,7 +37,6 @@ export const CreateConceptForm = ({
             value={nuevoConcepto.descripcion}
             onChange={handleNuevoConceptoChange}
           />
-
           <textarea
             type="text"
             placeholder="ejemplo"
@@ -45,7 +46,7 @@ export const CreateConceptForm = ({
             onChange={handleNuevoConceptoChange}
           />
 
-          <label>
+          <label className="createbuttonsBox">
             {nuevoConcepto.urls.map((url, index) => (
               <div  key={index}>
                 <input
@@ -55,11 +56,13 @@ export const CreateConceptForm = ({
                 />
               </div>
             ))}
-            <button className="button" type="button" onClick={handleAddUrl}>
-              Agregar URL
-            </button>
+          <button className="button" type="button" onClick={handleAddUrl}>
+            Agregar URL
+          </button>
+          <button  className="button">Crear Concepto.</button>
+          <button className="button" onClick={handleBack}>Regresar</button>
+
           </label>
-          <button  className="button" type="submit">Crear Concepto.</button>
         </form>
       )}
     </div>
@@ -78,6 +81,7 @@ CreateConceptForm.propTypes = {
   handleUrlChange: PropTypes.func.isRequired,
   handleNuevoConceptoSubmit: PropTypes.func.isRequired,
   mostrarAñadir: PropTypes.bool, 
-  error: PropTypes.string
+  error: PropTypes.string,
+  handleBack: PropTypes.func.isRequired,
 };
 

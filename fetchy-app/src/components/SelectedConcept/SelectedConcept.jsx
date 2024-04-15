@@ -141,5 +141,6 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
 };
 
 SelectedConcept.propTypes = {
-  conceptoSeleccionado: PropTypes.object,
+    conceptoSeleccionado: PropTypes.object,
+    setCrud:PropTypes.object
 };

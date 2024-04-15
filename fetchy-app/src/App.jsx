@@ -13,6 +13,8 @@ export const App = () => {
   const [busqueda, setBusqueda] = useState("");
   const [resultado, setResultado] = useState([]);
   const [conceptoSeleccionado, setConceptoSeleccionado] = useState(null);
+  //const [conceptoActualizandoId, setConceptoActualizandoId] = useState(null);
+
   const [nuevoConcepto, setNuevoConcepto] = useState({
     nombre: "",
     descripcion: "",
@@ -131,7 +133,17 @@ export const App = () => {
       setMostrarAñadir(false);
     }
   };
-
+  const handleBack = (event) => {
+    event.preventDefault();
+      //cargarDatos();
+      setNuevoConcepto({
+        nombre: "",
+        descripcion: "",
+        ejemplo: "",
+        urls: [],
+      });
+      setMostrarAñadir(false);
+  }
   const crearConcepto = (nombre, descripcion, ejemplo, urls) => {
     // GENERRA UN ID ALEATOREO
     const nuevoId = uuidv4();
@@ -170,7 +182,7 @@ export const App = () => {
       />
       <SelectedConcept
         setCrud={setCrud}
-        conceptoSeleccionado={conceptoSeleccionado}
+        conceptoSeleccionado={resultado.length!=0?null:conceptoSeleccionado}//si el resultado es diferente a 0 te de un null
       />
       <CreateConceptForm
         error={error}
@@ -180,6 +192,7 @@ export const App = () => {
         handleAddUrl={handleAddUrl}
         handleUrlChange={handleUrlChange}
         handleNuevoConceptoSubmit={handleNuevoConceptoSubmit}
+        handleBack={handleBack}
       />
     </div>
   );
