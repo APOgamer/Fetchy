@@ -8,8 +8,8 @@ export const CreateConceptForm = ({
   handleNuevoConceptoSubmit,
   mostrarAñadir,
   error
-
 }) => {
+
   return (
     <div className="contenedor-añadir-concepto">
       <span className="span">{error} </span>
@@ -18,7 +18,6 @@ export const CreateConceptForm = ({
           className="form-añadir-concepto"
           onSubmit={handleNuevoConceptoSubmit}
         >
-
           <input
             type="text"
             placeholder="nombre"
