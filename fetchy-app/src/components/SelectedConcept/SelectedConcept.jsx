@@ -1,11 +1,12 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { FromEditarConcepto } from "../FromEditarConcepto/FromEditarConcepto";
 
 export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
   //-------------------------------------------------------------------------//
   // STATES
   const [mostrarFormEditar, setMostrarFormEditar] = useState(true);
-  const [editarConcepto, setEditarConcepto] = useState({
+  const [editarConcepto, setEditarConcepto ] = useState({
     nombre: "",
     descripcion: "",
     ejemplo: "",
@@ -79,37 +80,7 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
               <p>URLs:</p>
             </div>
           ) : (
-            <form onSubmit={(e) => submitActualizar(e)}>
-              <input
-                type="text"
-                onChange={(e) =>
-                  setEditarConcepto((prev) => ({
-                    ...prev,
-                    nombre: e.target.value,
-                  }))
-                }
-              />
-              <input
-                type="text"
-                onChange={(e) =>
-                  setEditarConcepto((prev) => ({
-                    ...prev,
-                    descripcion: e.target.value,
-                  }))
-                }
-              />
-              <input
-                type="text"
-                onChange={(e) =>
-                  setEditarConcepto((prev) => ({
-                    ...prev,
-                    ejemplo: e.target.value,
-                  }))
-                }
-              />
-              <button>actualizar</button>
-              <button onClick={() => setMostrarFormEditar(true)}>regresar</button>
-            </form>
+            <FromEditarConcepto submitActualizar={submitActualizar} setEditarConcepto={setEditarConcepto} />
           )}
           <ul>
             {conceptoSeleccionado.urls.map((url, index) => (
@@ -131,7 +102,7 @@ export const SelectedConcept = ({ conceptoSeleccionado, setCrud }) => {
                 }}
               >
                 Actualizar
-              </button>            
+              </button>
             </div>
           )}
         </div>

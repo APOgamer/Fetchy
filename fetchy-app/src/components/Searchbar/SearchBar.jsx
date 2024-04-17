@@ -7,8 +7,6 @@ export const SearchBar = ({
   handleBuscar,
   /* eslint-disable no-unused-vars */
   handleKeyPress,
-  /* eslint-enable no-unused-vars */
-  setMostrarAñadir,
 }) => {
   return (
    <div style={{height:"200px",display:"flex",alignItems:"center",}}>
@@ -41,7 +39,6 @@ export const SearchBar = ({
       </button>
     </label>
   </form>
-  <button className="button" onClick={()=> setMostrarAñadir(true)}>añadir </button>
   </div>)
      }
    </div>

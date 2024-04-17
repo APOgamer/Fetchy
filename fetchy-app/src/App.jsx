@@ -8,6 +8,7 @@ import { SelectedConcept } from "./components/SelectedConcept/SelectedConcept";
 import "./styles/app.css";
 import "./components/ConceptList/ConceptList";
 import { v4 as uuidv4 } from "uuid"; // Importa uuidv4 desde el paquete uuid
+import { FondoDePantalla } from "./components/FondoDePantalla";
 
 export const App = () => {
   const [busqueda, setBusqueda] = useState("");
@@ -35,7 +36,7 @@ export const App = () => {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("conceptos"));
     if (!data) {
-      localStorage.setItem("conceptos", JSON.stringify([]));
+      localStorage.setItem("conceptos", JSON.stringify([{nombre:"añadirConcepto"}]));
     }
   }, []);
 
@@ -164,8 +165,16 @@ export const App = () => {
     if (event.key === "Enter") {
       handleBuscar();
     }
-  };
+  }
 
+  // prueba 
+  //--------------------------//
+
+  
+  useEffect(() => {
+
+  }, [])
+  
   return (
     <div className="app">
       <SearchBar
@@ -177,6 +186,7 @@ export const App = () => {
         mostrarAñadir={mostrarAñadir}
       />
       <ConceptList
+      setMostrarAñadir={setMostrarAñadir}
         mostrarAñadir={mostrarAñadir}
         resultado={resultado}
         handleConceptoSeleccionado={handleConceptoSeleccionado}
@@ -196,6 +206,7 @@ export const App = () => {
         handleNuevoConceptoSubmit={handleNuevoConceptoSubmit}
         handleBack={handleBack}
       />
+            <FondoDePantalla />
     </div>
   );
 };

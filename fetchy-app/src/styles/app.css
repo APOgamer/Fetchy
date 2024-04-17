@@ -87,29 +87,26 @@ width: 100%;
 .ul-lista-conceptos{
     margin-top: 40px;    
 }
-  .concepto-coincidente{
-    font-size: 15px;
-    list-style: none;
-    text-align: center;
-    padding: 2px 0px;
-    background: #171F89;
-    border-radius: 10px;
-    margin-top: 20px;
-    background-size: cover;
-    width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 0px 10px rgba(162, 0, 180, 0.7);
-    cursor:pointer;
-  }
-
-.concepto-coincidente:hover {
-  background: #161634;
-  /* opacity: 50%; */
-  transition: 0.3s ease-in-out;
-  transform: translateY(-10px);
-  color: #ffffffcf;
+.concepto-coincidente{
+  width: 100%;
+  list-style: none;
+  text-align: center;
+  cursor:pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+  padding: 10px 0px;
+  border-radius: 4px;
+  padding: 10px 100px;
+  margin: 2px 0px;
 }
+.concepto-coincidente:hover{
+  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.2);
+  
+}
+
+
+
 
   /*--------------------------------------------------------*/
 
